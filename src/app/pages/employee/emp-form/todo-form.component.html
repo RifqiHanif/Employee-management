@@ -1,0 +1,118 @@
+<section id="todo" class="todo sect-pt4 mt-5">
+  <div class="container">
+    <div
+      class="mb-3 d-flex flex-column flex-md-row w-100 justify-content-between"
+    >
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+          <li class="breadcrumb-item active" aria-current="page">form</li>
+        </ol>
+      </nav>
+      <p>
+        <i class="bi bi-calendar-check"></i>&nbsp;
+        {{ today | dateCustom: "eee, dd MMMM yyyy":locale }}
+      </p>
+    </div>
+
+<h3>Form</h3>
+
+<form class="row g-3 " [formGroup]="todoForm" (ngSubmit)="onSubmitTodo()">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4" formControlName="{{ field.EMAIL }}">
+    <app-validation-message
+            [control]="todoForm.get(field.EMAIL)"
+            [field]="field.EMAIL"
+        ></app-validation-message>
+  </div>
+  <div class="col-md-6">
+    <label for="inputName" class="form-label">Username</label>
+    <input type="text" class="form-control" id="inputName" formControlName="{{ field.USERNAME }}">
+    <app-validation-message
+              [control]="todoForm.get(field.USERNAME)"
+              [field]="field.USERNAME"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-6">
+    <label for="inputName1" class="form-label">FirstName</label>
+    <input type="text" class="form-control" id="inputName1" formControlName="{{ field.FIRSTNAME }}">
+    <app-validation-message
+              [control]="todoForm.get(field.FIRSTNAME)"
+              [field]="field.FIRSTNAME"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">LastName</label>
+    <input type="text" class="form-control" id="inputPassword4" formControlName="{{ field.LASTNAME }}">
+  <app-validation-message
+              [control]="todoForm.get(field.LASTNAME)"
+              [field]="field.LASTNAME"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress" class="form-label">Birth Date</label>
+    <input type="date" min='1900-01-01' max='2022-01-01' class="form-control" id="inputAddress" formControlName="{{ field.BOD }}">
+  <app-validation-message
+              [control]="todoForm.get(field.BOD)"
+              [field]="field.BOD"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-6">
+    <label for="inputAddress2" class="form-label">Basic Salary</label>
+    <input type="number" class="form-control" id="inputAddress2" formControlName="{{ field.SALARY }}">
+  <app-validation-message
+              [control]="todoForm.get(field.SALARY)"
+              [field]="field.SALARY"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-4">
+    <label for="inputCity" class="form-label">Status</label>
+    <input type="text" class="form-control" id="inputCity" formControlName="{{ field.STATUS }}">
+  <app-validation-message
+              [control]="todoForm.get(field.STATUS)"
+              [field]="field.STATUS"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-4">
+    <label for="inputCity" class="form-label">Description</label>
+    <input type="datetime-local" class="form-control" id="inputCity" formControlName="{{ field.DESC }}">
+  <app-validation-message
+              [control]="todoForm.get(field.DESC)"
+              [field]="field.DESC"
+          ></app-validation-message>
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">Group</label>
+    <select id="inputState" class="form-select" formControlName="{{ field.GROUP }}">
+      <app-validation-message
+              [control]="todoForm.get(field.GROUP)"
+              [field]="field.GROUP"
+          ></app-validation-message>
+      <option selected>Full-stack dev</option>
+      <option>Team Leader</option>
+      <option>Full-stack dev</option>
+      <option>Back-end dev</option>
+      <option>Front-end dev</option>
+      <option>UI/UX</option>
+      <option>Digital Marketing</option>
+      <option>Finance</option>
+      <option>Account Manager</option>
+      <option>Human capital</option>
+      <option>IT Support</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
+</div>
+</section>
